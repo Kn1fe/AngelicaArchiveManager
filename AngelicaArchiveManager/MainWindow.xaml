@@ -1,0 +1,82 @@
+﻿<Window x:Class="AngelicaArchiveManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AngelicaArchiveManager"
+        mc:Ignorable="d"
+        Title="AngelicaArchiveManager v1.0" Height="600" Width="800" ResizeMode="CanMinimize">
+    <Grid>
+        <ToolBar Height="64" Margin="0,0,-20,0" VerticalAlignment="Top" ToolBarTray.IsLocked="True" ToolBar.OverflowMode="Never" Foreground="{x:Null}" BorderBrush="Black" Background="{x:Null}">
+            <Separator/>
+            <Button Width="96" Click="OpenFile">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="Resources/open.png" Width="32" Height="32"/>
+                    <TextBlock Grid.Row="1">Открыть</TextBlock>
+                </Grid>
+            </Button>
+            <Separator />
+            <Button Width="96" Click="SettingsClick">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="Resources/services.png" Width="32" Height="32"/>
+                    <TextBlock Grid.Row="1">Настройки</TextBlock>
+                </Grid>
+            </Button>
+            <Separator />
+            <Button Width="96">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="Resources/search.png" Width="32" Height="32"/>
+                    <TextBlock Grid.Row="1">Поиск</TextBlock>
+                </Grid>
+            </Button>
+            <Separator />
+            <Button Width="96" Click="Defrag">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="Resources/synchronize.png" Width="32" Height="32"/>
+                    <TextBlock Grid.Row="1">Дефрагментация</TextBlock>
+                </Grid>
+            </Button>
+            <Separator />
+            <Button Width="96">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="Resources/info.png" Width="32" Height="32"/>
+                    <TextBlock Grid.Row="1">Информация</TextBlock>
+                </Grid>
+            </Button>
+            <Separator />
+            <Button Width="96">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Source="Resources/about.png" Width="32" Height="32"/>
+                    <TextBlock Grid.Row="1">О программе</TextBlock>
+                </Grid>
+            </Button>
+        </ToolBar>
+        <TabControl Name="Archives" HorizontalAlignment="Left" Height="452" Margin="10,109,0,0" VerticalAlignment="Top" Width="772" SelectionChanged="Archives_SelectionChanged">
+        </TabControl>
+        <TextBox Text="{Binding ArchivePath, UpdateSourceTrigger=LostFocus, Mode=TwoWay}" KeyDown="PathEnter" HorizontalAlignment="Left" Height="23" Margin="10,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="772"/>
+    </Grid>
+</Window>
